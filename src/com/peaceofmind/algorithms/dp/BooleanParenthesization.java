@@ -42,15 +42,12 @@ public class BooleanParenthesization {
                         False[i][j] += (tik * tkj - True[i][k] * True[k + 1][j]);
                     }
                     if (operator[k] == '|') {
-                        True[i][j] += (tik * tkj - False[i][k]
-                                * False[k + 1][j]);
+                        True[i][j] += (tik * tkj - False[i][k] * False[k + 1][j]);
                         False[i][j] += False[i][k] * False[k + 1][j];
                     }
                     if (operator[k] == '^') {
-                        True[i][j] += True[i][k] * False[k + 1][j]
-                                + False[i][k] * True[k + 1][j];
-                        False[i][j] += True[i][k] * True[k + 1][j]
-                                + False[i][k] * False[k + 1][j];
+                        True[i][j] += True[i][k] * False[k + 1][j] + False[i][k] * True[k + 1][j];
+                        False[i][j] += True[i][k] * True[k + 1][j] + False[i][k] * False[k + 1][j];
                     }
                 }
             }

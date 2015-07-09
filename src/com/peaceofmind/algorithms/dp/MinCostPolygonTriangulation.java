@@ -30,10 +30,7 @@ public class MinCostPolygonTriangulation {
         double result = Double.MAX_VALUE;
 
         for (int k = start + 1; k < end; k++) {
-            result = Math.min(
-                    result,
-                    (mtc(points, start, k) + mtc(points, k, end) + cost(points,
-                            start, k, end)));
+            result = Math.min(result, (mtc(points, start, k) + mtc(points, k, end) + cost(points, start, k, end)));
         }
         return result;
     }
@@ -53,8 +50,7 @@ public class MinCostPolygonTriangulation {
                 } else {
                     dp[i][j] = Double.MAX_VALUE;
                     for (int k = i + 1; k < j; k++) {
-                        double val = dp[i][k] + dp[k][j]
-                                + cost(points, i, j, k);
+                        double val = dp[i][k] + dp[k][j] + cost(points, i, j, k);
                         if (val < dp[i][j])
                             dp[i][j] = val;
                     }
@@ -89,8 +85,7 @@ public class MinCostPolygonTriangulation {
      * @return
      */
     private static double distance(Point p1, Point p2) {
-        return Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y)
-                * (p1.y - p2.y));
+        return Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y));
     }
 
     public static void main(String[] args) {

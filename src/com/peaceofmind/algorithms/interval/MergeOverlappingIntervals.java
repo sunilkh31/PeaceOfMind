@@ -29,8 +29,7 @@ public class MergeOverlappingIntervals {
      * @param intervals
      * @return
      */
-    public ArrayList<Interval> mergeOverlappingIntervals(
-            ArrayList<Interval> intervals) {
+    public ArrayList<Interval> mergeOverlappingIntervals(ArrayList<Interval> intervals) {
         sortIntervalsWithStartTime(intervals);
 
         Stack<Interval> result = new Stack<Interval>();
@@ -61,6 +60,30 @@ public class MergeOverlappingIntervals {
         Collections.sort(intervals, comp);
     }
 
+    public ArrayList<Interval> addAndMergeIntervals(ArrayList<Interval> intervals, Interval interval) {
+        ArrayList<Interval> result = new ArrayList<>();
+        for (int i = 0; i < intervals.size(); i++) {
+            if ((interval.startTime >= intervals.get(i).startTime && interval.startTime <= intervals.get(i).endTime)
+                    || (interval.endTime >= intervals.get(i).startTime && interval.startTime <= intervals.get(i).startTime)) {
+                interval.startTime = Math.min(interval.startTime, intervals.get(i).startTime);
+                interval.endTime = Math.max(interval.endTime, intervals.get(i).endTime);
+                if (i == intervals.size() - 1) {
+                    result.add(interval);
+                }
+            } else if (interval.endTime < intervals.get(i).startTime) {
+                result.add(interval);
+                result.addAll(intervals.subList(i, intervals.size()));
+                break;
+            } else {
+                result.add(intervals.get(i));
+                if (i == intervals.size() - 1) {
+                    result.add(interval);
+                }
+            }
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         MergeOverlappingIntervals object = new MergeOverlappingIntervals();
         ArrayList<Interval> input = new ArrayList<>();
@@ -72,10 +95,15 @@ public class MergeOverlappingIntervals {
         input.add(object.new Interval(29, 40));
         input.add(object.new Interval(41, 42));
         ArrayList<Interval> intervals = object.mergeOverlappingIntervals(input);
-        for (int i = 0; i < intervals.size(); i++) {
-            System.out.println(intervals.get(i).startTime + " "
-                    + intervals.get(i).endTime);
-        }
+        printIntervals(intervals);
+        intervals = object.addAndMergeIntervals(intervals, object.new Interval(0, 20));
+        printIntervals(intervals);
+    }
 
+    public static void printIntervals(ArrayList<Interval> intervals) {
+        System.out.println("----New Print----");
+        for (int i = 0; i < intervals.size(); i++) {
+            System.out.println(intervals.get(i).startTime + " " + intervals.get(i).endTime);
+        }
     }
 }

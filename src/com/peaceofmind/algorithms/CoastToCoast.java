@@ -63,8 +63,7 @@ public class CoastToCoast {
         // iterate from last second row
         for (int i = triangle.size() - 2; i >= 0; i--) {
             for (int j = 0; j < triangle.get(i + 1).size() - 1; j++) {
-                total[j] = triangle.get(i).get(j)
-                        + Math.min(total[j], total[j + 1]);
+                total[j] = triangle.get(i).get(j) + Math.min(total[j], total[j + 1]);
             }
         }
 
@@ -79,8 +78,7 @@ public class CoastToCoast {
         System.out.println(minimumTotal(in));
     }
 
-    private static final int[][] neighbours = { { -1, 0, 0, 1 },
-            { 0, -1, 1, 0 }, };
+    private static final int[][] neighbours = { { -1, 0, 0, 1 }, { 0, -1, 1, 0 }, };
 
     public static boolean[][] bothCoastsPositions(int[][] a) {
         int n = a.length;

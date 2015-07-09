@@ -3,7 +3,6 @@
  */
 package com.peaceofmind.algorithms;
 
-
 /**
  * @author StarLord
  *

@@ -26,10 +26,8 @@ public class RotatedSortedArray {
         while (start <= end) {
             mid = start + (end - start) / 2;
             if ((mid == 0 && array.get(mid + 1) < array.get(mid))
-                    || (mid == array.size() - 1 && array.get(mid - 1) > array
-                            .get(mid))
-                    || (array.get(mid) < array.get(mid - 1) && array.get(mid) < array
-                            .get(mid + 1))) {
+                    || (mid == array.size() - 1 && array.get(mid - 1) > array.get(mid))
+                    || (array.get(mid) < array.get(mid - 1) && array.get(mid) < array.get(mid + 1))) {
                 return mid;
             } else if (array.get(mid) > array.get(end)) {
                 start = mid + 1;

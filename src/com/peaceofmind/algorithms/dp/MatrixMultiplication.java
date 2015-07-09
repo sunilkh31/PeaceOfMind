@@ -18,8 +18,7 @@ public class MatrixMultiplication {
         int min = Integer.MAX_VALUE;
         int count = 0;
         for (int i = start; i < end; i++) {
-            count = minMatrixChainOrderRec(matSizes, start, i)
-                    + minMatrixChainOrderRec(matSizes, i + 1, end)
+            count = minMatrixChainOrderRec(matSizes, start, i) + minMatrixChainOrderRec(matSizes, i + 1, end)
                     + matSizes[start - 1] * matSizes[i] * matSizes[end];
             if (count < min)
                 min = count;
@@ -71,8 +70,7 @@ public class MatrixMultiplication {
 
     public static void main(String[] args) {
         int[] matSizes = { 1, 2, 3, 4, 5, 6, 10 };
-        System.out.println(minMatrixChainOrderRec(matSizes, 1,
-                matSizes.length - 1));
+        System.out.println(minMatrixChainOrderRec(matSizes, 1, matSizes.length - 1));
         MatrixMultiplication mul = new MatrixMultiplication();
         System.out.println(mul.matrixChainOrder(matSizes));
         mul.printOptimalParenthesizations();
