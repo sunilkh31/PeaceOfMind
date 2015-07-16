@@ -1,4 +1,4 @@
-package com.peaceofmind.algorithms;
+package com.peaceofmind.algorithms.graph;
 
 import java.util.ArrayList;
 

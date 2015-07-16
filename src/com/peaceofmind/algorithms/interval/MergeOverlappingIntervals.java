@@ -13,7 +13,7 @@ import java.util.Stack;
  */
 public class MergeOverlappingIntervals {
 
-    public class Interval {
+    public static class Interval {
         public int startTime;
         public int endTime;
 
@@ -87,16 +87,16 @@ public class MergeOverlappingIntervals {
     public static void main(String[] args) {
         MergeOverlappingIntervals object = new MergeOverlappingIntervals();
         ArrayList<Interval> input = new ArrayList<>();
-        input.add(object.new Interval(0, 10));
-        input.add(object.new Interval(4, 20));
-        input.add(object.new Interval(5, 9));
-        input.add(object.new Interval(21, 25));
-        input.add(object.new Interval(26, 29));
-        input.add(object.new Interval(29, 40));
-        input.add(object.new Interval(41, 42));
+        input.add(new Interval(0, 10));
+        input.add(new Interval(4, 20));
+        input.add(new Interval(5, 9));
+        input.add(new Interval(21, 25));
+        input.add(new Interval(26, 29));
+        input.add(new Interval(29, 40));
+        input.add(new Interval(41, 42));
         ArrayList<Interval> intervals = object.mergeOverlappingIntervals(input);
         printIntervals(intervals);
-        intervals = object.addAndMergeIntervals(intervals, object.new Interval(0, 20));
+        intervals = object.addAndMergeIntervals(intervals, new Interval(0, 20));
         printIntervals(intervals);
     }
 

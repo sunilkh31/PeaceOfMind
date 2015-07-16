@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.peaceofmind.algorithms;
+package com.peaceofmind.algorithms.backtracking;
 
 import java.util.ArrayList;
 
