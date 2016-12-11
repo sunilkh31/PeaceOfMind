@@ -1,5 +1,6 @@
 package com.peaceofmind.algorithms.interval;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -12,16 +13,6 @@ import java.util.Stack;
  *
  */
 public class MergeOverlappingIntervals {
-
-    public static class Interval {
-        public int startTime;
-        public int endTime;
-
-        public Interval(int startTime, int endTime) {
-            this.startTime = startTime;
-            this.endTime = endTime;
-        }
-    }
 
     /**
      * Sorts the Intervals by Start time and uses Stack to merge the intervals

@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import com.peaceofmind.algorithms.interval.MergeOverlappingIntervals.Interval;
-
 /**
  * @author StarLord
  *
