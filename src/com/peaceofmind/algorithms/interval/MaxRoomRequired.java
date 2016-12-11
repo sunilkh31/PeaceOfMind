@@ -17,7 +17,7 @@ public class MaxRoomRequired {
 
     /* Maximum meeting scheduler */
     public static int maximumMeetingScheduler(ArrayList<Interval> intervals) {
-        ArrayList<Integer> convertedIntervals = new ArrayList<>();
+        ArrayList<Integer> convertedIntervals = new ArrayList<Integer>();
         for (Interval interval : intervals) {
             convertedIntervals.add(interval.startTime);
             convertedIntervals.add(-interval.endTime);
